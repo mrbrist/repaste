@@ -1,5 +1,6 @@
 <p align="center">
   <img src="./img/logo.svg" width="256" height="256"/> <br>
+  [![JavaScript Style Guide](https://cdn.rawgit.com/standard/standard/master/badge.svg)](https://github.com/standard/standard)
 </p>
 
 > A minimalistic cross-platform clipboard manager
