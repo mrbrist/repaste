@@ -1,0 +1,34 @@
+{
+  "name": "repaste",
+  "productName": "REpaste",
+  "version": "0.0.0",
+  "description": "A minimalistic cross-platform clipboard manager",
+  "license": "MIT",
+  "repository": "mrbrist/repaste",
+  "author": {
+    "name": "mrbrist",
+    "email": "brist@mrbrist.com",
+    "url": "github.com/mrbrist/repaste"
+  },
+  "scripts": {
+    "test": "xo",
+    "start": "electron .",
+    "build": "electron-packager . --out=dist --asar --overwrite --all"
+  },
+  "dependencies": {
+    "electron-debug": "^1.0.0"
+  },
+  "devDependencies": {
+    "devtron": "^1.1.0",
+    "electron-packager": "^8.0.0",
+    "electron": "^1.3.3",
+    "xo": "^0.16.0"
+  },
+  "xo": {
+    "esnext": true,
+    "envs": [
+      "node",
+      "browser"
+    ]
+  }
+}
