@@ -6,6 +6,7 @@ const Positioner = require('electron-positioner')
 const {
   app,
   Tray,
+  Menu,
   BrowserWindow } = require('electron')
 
 let mainWindow = null
@@ -28,11 +29,11 @@ app.on('ready', () => {
     skipTaskbar: true,
     show: false,
     title: 'REpaste',
-    icon: path.join(__dirname, 'build', 'icons', 'logo.png')
+    icon: path.join(__dirname, 'app', 'img', 'icon_tray.png')
   })
 
   // Declare the tray
-  tray = new Tray(path.join(__dirname, 'build', 'icons', 'logo.png'))
+  tray = new Tray(path.join(__dirname, 'app', 'img', 'icon_tray.png'))
 
   // On window blur, close it
   mainWindow.on('blur', () => {
@@ -63,8 +64,16 @@ app.on('ready', () => {
     }
   })
 
+  const contextMenu = Menu.buildFromTemplate([
+    { label: 'Settings' },
+    { label: 'Exit' }
+  ])
+
   // Set the tray tooltip
   tray.setToolTip('REpaste')
+
+  // Set context menu
+  tray.setContextMenu(contextMenu)
 
   // Load the HTML doc
   mainWindow.loadURL(path.join('file://', __dirname, '/app/index.html'))
@@ -72,7 +81,13 @@ app.on('ready', () => {
 
   // Move the window next to the tray
   const positioner = new Positioner(mainWindow)
-  positioner.move('trayBottomCenter', tray.getBounds())
+
+  // Moves the window depending on OS
+  if (process.platform === 'win32') {
+    positioner.move('trayBottomCenter', tray.getBounds())
+  } else {
+    positioner.move('trayCenter', tray.getBounds())
+  }
 })
 
 // Quit when all windows are closed.
