@@ -28,11 +28,11 @@ app.on('ready', () => {
     skipTaskbar: true,
     show: false,
     title: 'REpaste',
-    icon: path.join(__dirname, 'img', 'logo.png')
+    icon: path.join(__dirname, 'build', 'icons', 'logo.png')
   })
 
   // Declare the tray
-  tray = new Tray(path.join(__dirname, 'img', 'logo.png'))
+  tray = new Tray(path.join(__dirname, 'build', 'icons', 'logo.png'))
 
   // On window blur, close it
   mainWindow.on('blur', () => {

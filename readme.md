@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./img/logo.svg" width="256" height="256"/> <br>
+  <img src="./build/icons/logo.svg" width="256" height="256"/> <br>
 </p>
 
 > A minimalistic cross-platform clipboard manager
