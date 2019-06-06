@@ -14,9 +14,12 @@
     "lint": "standard --fix",
     "start": "electron .",
     "build": "build",
+    "build:win": "build --win",
+    "build:mac": "build --mac",
     "clean": "rm -rf ./dist"
   },
   "dependencies": {
+    "electron-is": "^3.0.0",
     "electron-positioner": "^4.1.0"
   },
   "devDependencies": {
@@ -42,7 +45,8 @@
         "width": 660,
         "height": 400
       },
-      "contents": [{
+      "contents": [
+        {
           "x": 180,
           "y": 170,
           "type": "file"

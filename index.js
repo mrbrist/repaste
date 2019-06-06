@@ -65,8 +65,7 @@ app.on('ready', () => {
   })
 
   const contextMenu = Menu.buildFromTemplate([
-    { label: 'Settings' },
-    { label: 'Exit' }
+    { label: 'Exit', click () { if (process.platform !== 'darwin') { app.quit() } } }
   ])
 
   // Set the tray tooltip
